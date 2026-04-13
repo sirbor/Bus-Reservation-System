@@ -1,219 +1,172 @@
-<h1 align="center">Bus Reservation System</h1>
+# BusBook - C++ Learning Project (Basic to Advanced)
+<!-- cspell:ignore Wextra Iinclude waitlisted waitlist busbook RAII -->
 
+This project is remodeled as a **learn-by-building C++ codebase** using a Bus Reservation System.
+It is intentionally organized and heavily commented so a learner can walk from beginner ideas to
+advanced modern C++ patterns.
 
-This is a simple Bus Reservation System programmed using Cpp .This program allows you to add bus details,then you can reserve a bus seat according to vacant seat available.One can check for list for vacant seats in a bus.It also allows you to see the available bus for now.
-This is a simple implementation of c++ code using class and structure. 
+## Quick Start
 
-## How to run
-
-Before running make sure you are having an c++ ide for windows users and g++ compiler installed for linux users.For windows user just open the file with any cpp ide and just compile and run.For unix users first navigate to the directory where this ```busrsm.cpp ``` file stored and then run the follwoing commands in terminal.
-
-```C++
-g++ [filename.cpp]
-./a.out # unix
-a.exe # windows
-```
-Normal Input/Output format for the code:
-```C
-
-sirbor@Dominics-MacBook-Pro ~ % cd Bus
-sirbor@Dominics-MacBook-Pro Bus % cd Bus-Reservation-System
-sirbor@Dominics-MacBook-Pro Bus-Reservation-System % ls
-LICENSE					busResOutput
-README.md				busReservation.cpp
-Screenshot from 2019-09-16 21-52-39.png	sm.png
-a.out
-sirbor@Dominics-MacBook-Pro Bus-Reservation-System % g++ busReservation.cpp
-sirbor@Dominics-MacBook-Pro Bus-Reservation-System % ./a.out
----------------------------------------------------------------------------
-				****SM Bus Travel Agency****
-
----------------------------------------------------------------------------
-
-***************************************************************************
-
-
-			1.Add new Bus Details:
-			2.Reserve your seats:
-			3.Show the available seats in a bus:
-			4.Buses Available Now: 
-			5.Exit
-***************************************************************************
-
-			Enter your choice:-> 1
-***************************************************************************
-Enter bus no: 123
-
-Enter Driver's name: Peter
-
-Arrival time : 10:15AM
-
-Departure: 10:25AM
-
-From: 			NAIROBI
-
-To: 			KIAMBU
-
-***************************************************************************
-
-
-			1.Add new Bus Details:
-			2.Reserve your seats:
-			3.Show the available seats in a bus:
-			4.Buses Available Now: 
-			5.Exit
-***************************************************************************
-
-			Enter your choice:-> 1
-***************************************************************************
-Enter bus no: 245
-
-Enter Driver's name: Paul
-
-Arrival time : 10:58AM
-
-Departure: 11:04AM
-
-From: 			THIKA
-
-To: 			KIAMBU
-
-***************************************************************************
-
-
-			1.Add new Bus Details:
-			2.Reserve your seats:
-			3.Show the available seats in a bus:
-			4.Buses Available Now: 
-			5.Exit
-***************************************************************************
-
-			Enter your choice:-> 4
-***************************************************************************
-***************************************************************************
-Bus no: 	123
-Driver: 	Peter		Arrival time: 	10:15AM	Departure Time: 	10:25AM
-From: 		NAIROBI		To: 			KIAMBU
-***************************************************************************
-___________________________________________________________________________
-***************************************************************************
-Bus no: 	245
-Driver: 	Paul		Arrival time: 	10:58AM	Departure Time: 	11:04AM
-From: 		THIKA		To: 			KIAMBU
-***************************************************************************
-___________________________________________________________________________
-
-***************************************************************************
-
-
-			1.Add new Bus Details:
-			2.Reserve your seats:
-			3.Show the available seats in a bus:
-			4.Buses Available Now: 
-			5.Exit
-***************************************************************************
-
-			Enter your choice:-> 3
-***************************************************************************
-Enter bus no: 123
-***************************************************************************
-
-Bus no: 	123
-Driver: 	Peter		Arrival time: 	10:15AM	Departure time:10:25AM
-From: 		NAIROBI		To: 		KIAMBU
-***************************************************************************
-
-    1.     Empty    2.     Empty    3.     Empty    4.     Empty
-    5.     Empty    6.     Empty    7.     Empty    8.     Empty
-    9.     Empty   10.     Empty   11.     Empty   12.     Empty
-   13.     Empty   14.     Empty   15.     Empty   16.     Empty
-   17.     Empty   18.     Empty   19.     Empty   20.     Empty
-   21.     Empty   22.     Empty   23.     Empty   24.     Empty
-   25.     Empty   26.     Empty   27.     Empty   28.     Empty
-   29.     Empty   30.     Empty   31.     Empty   32.     Empty
-
-There are 32 seats empty in Bus No: 123
-***************************************************************************
-
-
-			1.Add new Bus Details:
-			2.Reserve your seats:
-			3.Show the available seats in a bus:
-			4.Buses Available Now: 
-			5.Exit
-***************************************************************************
-
-			Enter your choice:-> 2
-***************************************************************************
-Bus no: 245
-
-Seat Number: 31
-Enter passanger's name: Sirbor
-
-***************************************************************************
-
-
-			1.Add new Bus Details:
-			2.Reserve your seats:
-			3.Show the available seats in a bus:
-			4.Buses Available Now: 
-			5.Exit
-***************************************************************************
-
-			Enter your choice:-> 3
-***************************************************************************
-Enter bus no: 245
-***************************************************************************
-
-Bus no: 	245
-Driver: 	Paul		Arrival time: 	10:58AM	Departure time:11:04AM
-From: 		THIKA		To: 		KIAMBU
-***************************************************************************
-
-    1.     Empty    2.     Empty    3.     Empty    4.     Empty
-    5.     Empty    6.     Empty    7.     Empty    8.     Empty
-    9.     Empty   10.     Empty   11.     Empty   12.     Empty
-   13.     Empty   14.     Empty   15.     Empty   16.     Empty
-   17.     Empty   18.     Empty   19.     Empty   20.     Empty
-   21.     Empty   22.     Empty   23.     Empty   24.     Empty
-   25.     Empty   26.     Empty   27.     Empty   28.     Empty
-   29.     Empty   30.     Empty   31.    Sirbor   32.     Empty
-
-There are 31 seats empty in Bus No: 245
-The seat no 31 is reserved for Sirbor.
-***************************************************************************
-
-
-			1.Add new Bus Details:
-			2.Reserve your seats:
-			3.Show the available seats in a bus:
-			4.Buses Available Now: 
-			5.Exit
-***************************************************************************
-
-			Enter your choice:-> 5
-***************************************************************************
-Successfully Logged out from the Application. Visit Again!
-<Thanks You :)>
-Created By Dominic Bor
-sirbor@Dominics-MacBook-Pro Bus-Reservation-System % 
-
+```bash
+make
+make test
+make run
 ```
 
-## Usage
+---
 
-```CPP
+## Learning Goals Covered
 
+The code demonstrates and explains:
 
-  void addnewbus() # Used to add a new bus details
+- C++ basics: variables, loops, conditions, user input, functions
+- OOP: `struct`, `class`, encapsulation, constructors, const methods
+- STL: `std::vector`, `std::array`, `std::string`, `std::optional`
+- Algorithms and lambdas: `std::find_if`, `std::count_if`, custom predicates
+- Generic programming: template utility `count_if_custom`
+- Functional style: menu actions stored as `std::function<void()>`
+- RAII and smart pointers: `std::unique_ptr`
+- Error handling: `try/catch`, `std::exception`, safe numeric parsing
+- File handling and persistence: serialization + versioned data files
+- Clean architecture: headers in `include/`, implementation in `src/`
 
-  void allotment(); #used to allot a set to an passenger
+---
 
-  void empty(); # to check if the buses are empty
+## Project Structure
 
-  void show(); #shows avialble bus seats
-
-  void avail(); #shows all avialable buses
-
-  void position(int i); #to get the all reserved bus seats
+```text
+Bus-Reservation-System/
+  include/
+    concepts.hpp        # Reusable concept demos (enum class, templates, RAII timer)
+    models.hpp          # Domain models + declarations
+    storage.hpp         # Persistence interface + file-based implementation contract
+    system.hpp          # Reservation system interface + template helper
+  src/
+    concepts.cpp        # RAII timer + timestamp utilities
+    models.cpp          # Bus behavior implementation
+    storage.cpp         # File persistence implementation
+    system.cpp          # Menu flow, business logic, reports
+    main.cpp            # Program entry point + top-level exception handling
+  bus_data.txt          # Runtime storage (auto-generated/updated)
+  audit_log.txt         # Runtime audit trail (auto-generated/updated)
+  CMakeLists.txt
 ```
+
+---
+
+## Build and Run
+
+### Makefile (fastest for daily use)
+
+```bash
+make            # release build
+make run        # build and run app
+make test       # run all tests
+make debug      # debug build
+make clean      # remove build artifacts
+```
+
+### CMake (recommended)
+
+```bash
+cmake -S . -B build
+cmake --build build
+./build/BusBook
+```
+
+Run tests:
+
+```bash
+ctest --test-dir build --output-on-failure
+```
+
+### Direct Compile
+
+```bash
+g++ -std=c++20 -Wall -Wextra -pedantic \
+  src/main.cpp src/models.cpp src/storage.cpp src/concepts.cpp src/system.cpp \
+  -Iinclude -o BusBook
+./BusBook
+```
+
+Direct test compile/run:
+
+```bash
+g++ -std=c++20 -Wall -Wextra -pedantic \
+  tests/busbook_tests.cpp src/models.cpp src/storage.cpp src/concepts.cpp \
+  -Iinclude -o BusBookTests
+./BusBookTests
+```
+
+System-flow test compile/run (mock datastore, no console input):
+
+```bash
+g++ -std=c++20 -Wall -Wextra -pedantic \
+  tests/system_flow_tests.cpp src/system.cpp src/models.cpp src/storage.cpp src/concepts.cpp \
+  -Iinclude -o BusBookSystemFlowTests
+./BusBookSystemFlowTests
+```
+
+---
+
+## Concept -> File Map
+
+- Basics (variables, loops, input, conditions): `src/system.cpp`
+- Functions and decomposition: `include/system.hpp`, `src/system.cpp`
+- Structs and classes (OOP fundamentals): `include/models.hpp`, `src/models.cpp`
+- Encapsulation and const correctness: `include/models.hpp`, `src/models.cpp`
+- STL containers (`vector`, `array`, `string`, `optional`): `include/models.hpp`, `src/models.cpp`, `src/system.cpp`
+- STL algorithms + lambdas: `src/models.cpp`, `src/system.cpp`
+- Function templates: `include/system.hpp` (`count_if_custom`), `include/concepts.hpp` (`clampValue`)
+- Smart pointers (`unique_ptr`) and ownership: `include/system.hpp`, `src/system.cpp`
+- Enums and result object pattern: `include/concepts.hpp`, `src/system.cpp`
+- RAII pattern (`ScopedTimer`): `include/concepts.hpp`, `src/concepts.cpp`, `src/system.cpp`
+- Exceptions and error handling: `src/main.cpp`, `src/system.cpp`, `src/storage.cpp`
+- Interface and polymorphism (`IDataStore`): `include/storage.hpp`, `src/storage.cpp`, `src/system.cpp`
+- File I/O + serialization/versioned persistence: `src/storage.cpp`, `src/models.cpp`
+- Regex validation: `src/system.cpp`
+- Variant + visit (undo command model): `include/system.hpp`, `src/system.cpp`
+- Tuple + structured bindings: `src/system.cpp`
+- Associative containers (`map`, `set`) for route catalog: `src/system.cpp`
+- Operator overloading (`operator<<`): `include/models.hpp`, `src/models.cpp`
+
+---
+
+## Learning Roadmap (How to Study This Project)
+
+1. Start from `src/main.cpp` to understand program entry and exception safety.
+2. Read `include/models.hpp` and `src/models.cpp` for OOP + STL fundamentals.
+3. Read `include/system.hpp` for template + functional menu action declarations.
+4. Read `src/system.cpp` to see the full feature flow and file persistence.
+5. Run the app, test menu options, and map each feature to the concept used.
+
+---
+
+## Features in the Application
+
+1. Add new bus details  
+2. Reserve a seat  
+3. Show seats in a bus  
+4. List all buses  
+5. Cancel a reservation (auto-promotes waitlisted passenger)  
+6. Search buses by route  
+7. Find passenger by name  
+8. Save data now  
+9. Edit bus details  
+10. Delete a bus  
+11. Transfer reservation to another seat  
+12. Occupancy analytics  
+13. Fare and revenue report  
+14. View audit log  
+15. Clear audit log  
+16. Add passenger to bus waitlist  
+17. Show waitlist for a bus  
+18. Undo last action  
+19. Show route catalog  
+20. Exit  
+
+---
+
+## Notes
+
+- The remodeled code is now optimized for learning and maintainability.

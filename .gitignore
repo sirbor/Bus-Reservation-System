@@ -1,0 +1,6 @@
+build/
+cmake-build-*/
+BusBook_test
+a.out
+bus_data.txt
+audit_log.txt
